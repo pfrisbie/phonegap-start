@@ -91,13 +91,6 @@
 
     // A button will call this function
     //
-    function capturePhotoEdit() {
-      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
-    }
-
-    // A button will call this function
-    //
     function getPhoto(source) {
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
@@ -115,7 +108,7 @@
     </head>
     <body>
         <div class="app">
-            <h1>RMT Stamp Scanner #3</h1>
+            <h1>RMT Stamp Scanner #4</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
@@ -126,9 +119,10 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-	    <button onclick="capturePhoto();">Capture Photo</button> <br>
-		<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-		<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+	    <button onclick="capturePhoto();">Capture Photo</button> 
+		<p/>
+		<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
+		<p/>
 		<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
 		<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
 		<img style="display:none;" id="largeImage" src="" />
