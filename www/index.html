@@ -100,6 +100,11 @@
         sourceType: source });
     }
 
+    function uploadPhoto() {
+      // Take picture using device camera and retrieve image as base64-encoded string
+      alert("OCRing photo...");
+    }
+
     // Called if something bad happens.
     // 
     function onFail(message) {
@@ -115,13 +120,15 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-			<button onclick="capturePhoto();">Capture Photo</button> 
+			<button onclick="capturePhoto();">Capture Stamp</button> 
 			<p/>
-			<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
+			<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Load Stamp From Photo Library</button>
 			<p/>
 			<!--button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br-->
 			<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
 			<img style="display:none;" id="largeImage" src="" />
+			<button onclick="uploadPhoto();">OCR Stamp</button>
+			<p/>
 		</div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
