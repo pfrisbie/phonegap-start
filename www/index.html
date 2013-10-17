@@ -29,7 +29,8 @@
     <script type="text/javascript" charset="utf-8">
 
     var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value 
+    var destinationType; // sets the format of returned value
+	var gImageURI;
 
     // Wait for PhoneGap to connect with the device
     //
@@ -82,6 +83,7 @@
       //
       //largeImage.src = imageURI;
       smallImage.src = imageURI;
+	  gImageUri = imageURI;
     }
 
     // A button will call this function
@@ -100,11 +102,33 @@
         sourceType: source });
     }
 
-    function uploadPhoto() {
-      // Take picture using device camera and retrieve image as base64-encoded string
-      alert("OCRing photo...");
-    }
+	function uploadPhoto() {
+		alert( "OCRing: " + gImageUri);
+		var options = new FileUploadOptions();
+		options.fileKey="file";
+		options.fileName=gImageUri.substr(gImageUri.lastIndexOf('/')+1)+'.png';
+		options.mimeType="text/plain";
 
+		var params = new Object();
+
+		options.params = params;
+
+		var ft = new FileTransfer();
+		ft.upload(imageURI, encodeURI("http://beta.prizeredemption.com/upload.aspx"), win, fail, options);
+	}
+
+	function win(r) {
+		alert("Code = " + r.responseCode);
+		alert("Response = " + r.response);
+		alert("Sent = " + r.bytesSent);
+	}
+
+	function fail(r) {
+		alert("Code = " + r.responseCode);
+		alert("Response = " + r.response);
+		alert("Sent = " + r.bytesSent);
+	}
+	
     // Called if something bad happens.
     // 
     function onFail(message) {
