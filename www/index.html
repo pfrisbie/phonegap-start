@@ -74,12 +74,14 @@
 
       // Unhide image elements
       //
-      largeImage.style.display = 'block';
+      //largeImage.style.display = 'block';
+      smallImage.style.display = 'block';
 
       // Show the captured photo
       // The inline CSS rules are used to resize the image
       //
-      largeImage.src = imageURI;
+      //largeImage.src = imageURI;
+      smallImage.src = imageURI;
     }
 
     // A button will call this function
@@ -108,7 +110,7 @@
     </head>
     <body>
         <div class="app">
-            <h1>RMT Stamp Scanner #4</h1>
+            <h1>RMT Stamp Scanner #5</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
